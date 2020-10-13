@@ -1,9 +1,6 @@
 package com.sda.RentalCar.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,17 +10,19 @@ import javax.persistence.Id;
 @Entity
 @Builder
 @Data
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Car {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
 
-    private Long userId;
-    private String model;
-    private Long year;
-    private String mark;
+    private Long id;
 
+    private String name;
+
+    private String surname;
+
+    private Long age;
 }

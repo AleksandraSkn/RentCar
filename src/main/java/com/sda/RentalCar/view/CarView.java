@@ -7,8 +7,21 @@ import javax.persistence.Id;
 @Data
 public class CarView {
 
-    public Long id;
-    public String model;
-    public Long year;
-    public String mark;
+    public CarView(Long id, Long userId, String model, Long year, String mark) {
+        this.id = id;
+        this.userId = userId;
+        this.model = model;
+        this.year = year;
+        this.mark = mark;
+    }
+
+    public CarView() {
+    }
+
+    private Long id;
+
+    private Long userId;
+    private String model;
+    private Long year;
+    private String mark;
 }

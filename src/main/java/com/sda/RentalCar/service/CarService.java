@@ -1,24 +1,24 @@
 package com.sda.RentalCar.service;
 
 import com.sda.RentalCar.domain.Car;
+import com.sda.RentalCar.domain.User;
 import com.sda.RentalCar.dto.CreateCarDto;
 import com.sda.RentalCar.repository.CarRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class CarService {
-
-    private static String USERS_URL = "http://localhost:8070/user/external/";
 
     private final CarRepository repository;
 
+
     @Autowired
-    public CarService(CarRepository repository, CarRepository repository1){
+    public CarService(CarRepository repository){
         this.repository = repository;
     }
 
@@ -35,6 +35,11 @@ public class CarService {
 
     public List<Car> findAll() {
         return repository.findAll();
+    }
+
+    public Car findCarById(Long carId) {
+        return repository.findById(carId).get();
+
     }
 
 }
